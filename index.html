@@ -4,8 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Miami FL HVAC Services | ComfortPro HVAC</title>
-  <!-- Font Awesome for icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-p1CmV2h1m+P9Ww1I1uWg2Q4e2Zx2+W1+vF0k5PJ11cBjXzJvqr9pP4Y+XQYxq+VY1s9F6z4A9xE5Y4A9Z3Z3GA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
     :root {
       --color-primary: #004b8d;
@@ -17,72 +15,235 @@
       --spacing-base: 1rem;
       --max-width: 1200px;
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: var(--font-base); color: var(--color-text); background: var(--color-background); line-height: 1.6; }
-    .container { width: 90%; max-width: var(--max-width); margin: 0 auto; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: var(--font-base);
+      color: var(--color-text);
+      background: var(--color-background);
+      line-height: 1.6;
+    }
+    .container {
+      width: 90%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
 
     /* Top bar */
-    .top-bar { background: #fff; border-bottom: 1px solid #ddd; font-size: 0.9rem; }
-    .top-bar .container { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0; }
-    .social-icons {
-      display: flex; align-items: center;
+    .top-bar {
+      background: #fff;
+      border-bottom: 1px solid #ddd;
+      font-size: 0.9rem;
     }
-    .social-icons span { margin-right: 0.5rem; color: #666; }
+    .top-bar .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5rem 0;
+      flex-wrap: wrap;
+    }
+    .social-icons {
+      display: flex;
+      align-items: center;
+    }
+    .social-icons span {
+      margin-right: 0.5rem;
+      color: #666;
+    }
     .social-icons a {
       margin-right: 0.75rem;
       color: #666;
-      font-size: 1.1rem;
       text-decoration: none;
+      font-weight: bold;
     }
-    .cta-buttons a { margin-left: 0.5rem; background: var(--color-accent); color: #fff; padding: 0.5rem 1rem; border-radius: 4px; text-decoration: none; font-weight: bold; font-size: 0.85rem; }
+    .cta-buttons {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .cta-buttons a {
+      margin-left: 0.5rem;
+      background: var(--color-accent);
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 0.85rem;
+      margin-top: 0.25rem;
+    }
 
-   
     /* Main navigation */
-    .main-nav { background: var(--color-primary); position: sticky; top: 0; z-index: 1000; }
-    .main-nav .container { display: flex; justify-content: space-between; align-items: center; position: relative; }
-    .logo img { height: 50px; }
-    .nav-toggle { display: none; background: none; border: none; font-size: 2rem; color: #fff; cursor: pointer; }
-    nav ul { list-style: none; display: flex; }
-    nav li { position: relative; }
-    nav > ul > li { margin-left: 2rem; }
-    nav a, .nav-toggle { text-decoration: none; }
-    nav a { color: #fff; padding: 1rem 0; display: block; }
-    nav li ul { display: none; position: absolute; top: 100%; left: 0; background: #fff; min-width: 180px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-    nav li:hover > ul, nav li:focus-within > ul { display: block; }
-    nav li ul li { margin: 0; }
-    nav li ul a { color: var(--color-text); padding: 0.5rem 1rem; white-space: nowrap; }
-    .phone-btn { background: var(--color-accent); color: #fff; padding: 0.5rem 1rem; border-radius: 4px; text-decoration: none; font-weight: bold; margin-left: 1rem; }
+    .main-nav {
+      background: var(--color-primary);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .main-nav .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 0.5rem 0;
+    }
+    .logo img {
+      height: 50px;
+    }
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: #fff;
+      cursor: pointer;
+    }
+    nav {
+      flex: 1;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    nav li {
+      position: relative;
+      margin: 0 1rem;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      padding: 0.5rem 0;
+      display: block;
+      white-space: nowrap;
+    }
+    /* Dropdown */
+    nav li ul {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #fff;
+      min-width: 180px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      z-index: 100;
+    }
+    nav li:hover > ul,
+    nav li:focus-within > ul {
+      display: block;
+    }
+    nav li ul li {
+      margin: 0;
+    }
+    nav li ul a {
+      color: var(--color-text);
+      padding: 0.5rem 1rem;
+    }
+    .phone-btn {
+      background: var(--color-accent);
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 0.25rem;
+    }
 
     /* Hero Section */
-    .hero { display: flex; align-items: center; justify-content: flex-start; height: 100vh; background: url('https://via.placeholder.com/1600x900') center/cover no-repeat; color: #fff; text-shadow: 0 2px 4px rgba(0,0,0,0.5); padding: var(--spacing-base); }
-    .hero .content { max-width: 600px; }
-    .hero h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
-    .hero p { font-size: 1.25rem; margin-bottom: var(--spacing-base); }
-    .btn-primary { background: var(--color-secondary); color: #fff; padding: 0.75rem 1.5rem; border-radius: 4px; text-decoration: none; font-weight: bold; }
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      height: 80vh;
+      background: url('https://via.placeholder.com/1600x900') center/cover no-repeat;
+      color: #fff;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+      padding: var(--spacing-base);
+    }
+    .hero .content {
+      max-width: 600px;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .hero p {
+      font-size: 1.25rem;
+      margin-bottom: var(--spacing-base);
+    }
+    .btn-primary {
+      background: var(--color-secondary);
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: bold;
+    }
 
-    /* Content Sections */
-    .section { padding: calc(var(--spacing-base) * 2) 0; }
-    .section h2 { font-size: 2rem; color: var(--color-primary); margin-bottom: var(--spacing-base); text-align: center; }
-    .features { display: grid; grid-template-columns: 1fr; gap: var(--spacing-base); }
-    @media (min-width: 768px) { .features { grid-template-columns: repeat(4,1fr); } }
-    .feature-item { background: #f9f9f9; padding: var(--spacing-base); border-radius: 4px; text-align: center; position: relative; }
-    .feature-item img { width: 50px; margin-bottom: 0.5rem; }
-    .feature-item h3 { margin-bottom: 0.5rem; color: var(--color-primary); }
+    /* Services Overview */
+    .section {
+      padding: calc(var(--spacing-base) * 2) 0;
+    }
+    .section h2 {
+      font-size: 2rem;
+      color: var(--color-primary);
+      margin-bottom: var(--spacing-base);
+      text-align: center;
+    }
+    .features {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--spacing-base);
+    }
+    @media (min-width: 768px) {
+      .features {
+        grid-template-columns: repeat(4,1fr);
+      }
+    }
+    .feature-item {
+      background: #f9f9f9;
+      padding: var(--spacing-base);
+      border-radius: 4px;
+      text-align: center;
+    }
+    .feature-item img {
+      width: 50px;
+      margin-bottom: 0.5rem;
+    }
+    .feature-item h3 {
+      margin-bottom: 0.5rem;
+      color: var(--color-primary);
+    }
 
-    /* Mobile Responsive */
+    /* Mobile Styles */
     @media (max-width: 768px) {
-      .main-nav .container { flex-wrap: wrap; }
-      .nav-toggle { display: block; }
-      nav ul { display: none; flex-direction: column; width: 100%; background: var(--color-primary); }
-      nav ul.active { display: flex; }
-      nav > ul > li { margin: 0; }
-      nav li ul { position: static; box-shadow: none; }
-      nav li:hover > ul, nav li:focus-within > ul { display: flex; flex-direction: column; }
-      .phone-btn { margin: 0.5rem 0; }
+      .nav-toggle {
+        display: block;
+      }
+      nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+      }
+      nav ul.active {
+        display: flex;
+      }
+      nav li {
+        margin: 0;
+      }
+      nav li ul {
+        position: static;
+        box-shadow: none;
+      }
+      .phone-btn {
+        margin: 0.5rem 0;
+      }
     }
   </style>
   <script>
-    // Toggle mobile menu
     document.addEventListener('DOMContentLoaded', () => {
       const toggle = document.querySelector('.nav-toggle');
       const menu = document.querySelector('nav ul');
@@ -96,8 +257,8 @@
     <div class="container">
       <div class="social-icons">
         <span>Connect with us:</span>
-    <a href="https://www.facebook.com/YourPage" target="_blank" rel="noopener">Facebook</a>
-      <a href="https://www.google.com"       target="_blank" rel="noopener">Google</a>
+        <a href="https://www.facebook.com/YourPage" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://www.google.com" target="_blank" rel="noopener">Google</a>
       </div>
       <div class="cta-buttons">
         <a href="#">BUY FILTERS</a>
@@ -111,7 +272,7 @@
   <header class="main-nav">
     <div class="container">
       <a href="/" class="logo"><img src="https://via.placeholder.com/160x50?text=ComfortPro+Logo" alt="ComfortPro HVAC"></a>
-      <button class="nav-toggle" aria-label="Toggle navigation"><i class="fas fa-bars"></i></button>
+      <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
       <nav>
         <ul>
           <li tabindex="0">
