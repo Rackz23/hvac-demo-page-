@@ -21,31 +21,21 @@
     body { font-family: var(--font-base); color: var(--color-text); background: var(--color-background); line-height: 1.6; }
     .container { width: 90%; max-width: var(--max-width); margin: 0 auto; }
 
-  /* Top bar */
-<header class="top-bar" style="background: #fff; border-bottom: 1px solid #ddd; font-size: 0.9rem;">
-  <div class="container" style="display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0;">
-    <div class="social-links" style="display: flex; align-items: center;">
-      <span style="margin-right: 0.5rem; color: #666;">Connect with us:</span>
-      <a href="https://www.facebook.com/YourPage" target="_blank" rel="noopener" style="margin-right: 0.75rem; color: #666; text-decoration: none; font-weight: bold;">
-        Facebook
-      </a>
-      <a href="https://www.google.com" target="_blank" rel="noopener" style="margin-right: 0.75rem; color: #666; text-decoration: none; font-weight: bold;">
-        Google
-      </a>
-    </div>
-    <div class="cta-buttons">
-      <a href="#" style="margin-left: 0.5rem; background: var(--color-accent); color: #fff; padding: 0.5rem 1rem; border-radius: 4px; text-decoration: none; font-weight: bold; font-size: 0.85rem;">
-        BUY FILTERS
-      </a>
-      <a href="#" style="margin-left: 0.5rem; background: var(--color-accent); color: #fff; padding: 0.5rem 1rem; border-radius: 4px; text-decoration: none; font-weight: bold; font-size: 0.85rem;">
-        MAINTENANCE SUBSCRIPTION
-      </a>
-      <a href="#" style="margin-left: 0.5rem; background: var(--color-accent); color: #fff; padding: 0.5rem 1rem; border-radius: 4px; text-decoration: none; font-weight: bold; font-size: 0.85rem;">
-        GET AN INSTANT QUOTE
-      </a>
-    </div>
-  </div>
-</header>
+    /* Top bar */
+    .top-bar { background: #fff; border-bottom: 1px solid #ddd; font-size: 0.9rem; }
+    .top-bar .container { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0; }
+    .social-icons {
+      display: flex; align-items: center;
+    }
+    .social-icons span { margin-right: 0.5rem; color: #666; }
+    .social-icons a {
+      margin-right: 0.75rem;
+      color: #666;
+      font-size: 1.1rem;
+      text-decoration: none;
+    }
+    .cta-buttons a { margin-left: 0.5rem; background: var(--color-accent); color: #fff; padding: 0.5rem 1rem; border-radius: 4px; text-decoration: none; font-weight: bold; font-size: 0.85rem; }
+
    
     /* Main navigation */
     .main-nav { background: var(--color-primary); position: sticky; top: 0; z-index: 1000; }
