@@ -32,48 +32,43 @@
       margin: 0 auto;
     }
 
-    /* Top bar */
-    .top-bar {
-      background: #fff;
-      border-bottom: 1px solid #ddd;
-      font-size: 0.9rem;
-    }
-    .top-bar .container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0.5rem 0;
-      flex-wrap: wrap;
-    }
-    .social-icons {
-      display: flex;
-      align-items: center;
-    }
-    .social-icons span {
-      margin-right: 0.5rem;
-      color: #666;
-    }
-    .social-icons a {
-      margin-right: 0.75rem;
-      color: #666;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .cta-buttons {
-      display: flex;
-      flex-wrap: wrap;
-    }
-    .cta-buttons a {
-      margin-left: 0.5rem;
-      background: var(--color-accent);
-      color: #fff;
-      padding: 0.5rem 1rem;
-      border-radius: 4px;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 0.85rem;
-      margin-top: 0.25rem;
-    }
+    /* Top bar: social links */
+.top-bar {
+  background: var(--color-background);       /* was #fff */
+  border-bottom: 1px solid #ddd;            /* you could also make this a var, e.g. --color-border */
+  font-size: 0.9rem;
+}
+.top-bar .container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0.25rem 0;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.social-icons span {
+  margin-right: 0.25rem;
+  color: var(--color-text);                 /* fallback for your darker text */
+}
+.social-icons a {
+  margin-right: 0.5rem;
+  color: var(--color-text);                 /* or define a --color-muted if you like */
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.95rem;
+}
+.top-bar .cta-buttons {
+  margin-left: auto;
+  display: flex;
+  gap: 0.25rem;
+}
+.top-bar .cta-buttons a {
+  background: var(--color-accent);          /* was var(--color-accent) already */
+  color: #fff;
+  padding: 0.4rem 0.75rem;
+  font-size: 0.8rem;
+}
+
 
     /* Main navigation */
     .main-nav {
