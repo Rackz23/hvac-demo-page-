@@ -15,235 +15,73 @@
       --spacing-base: 1rem;
       --max-width: 1200px;
     }
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    body {
-      font-family: var(--font-base);
-      color: var(--color-text);
-      background: var(--color-background);
-      line-height: 1.6;
-    }
-    .container {
-      width: 90%;
-      max-width: var(--max-width);
-      margin: 0 auto;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--font-base); color: var(--color-text); background: var(--color-background); line-height: 1.6; }
+    .container { width: 90%; max-width: var(--max-width); margin: 0 auto; }
 
-    /* Top bar: social links */
-.top-bar {
-  background: var(--color-background);       /* was #fff */
-  border-bottom: 1px solid #ddd;            /* you could also make this a var, e.g. --color-border */
-  font-size: 0.9rem;
-}
-.top-bar .container {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  padding: 0.25rem 0;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-}
-.social-icons span {
-  margin-right: 0.25rem;
-  color: var(--color-text);                 /* fallback for your darker text */
-}
-.social-icons a {
-  margin-right: 0.5rem;
-  color: var(--color-text);                 /* or define a --color-muted if you like */
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 0.95rem;
-}
-.top-bar .cta-buttons {
-  margin-left: auto;
-  display: flex;
-  gap: 0.25rem;
-}
-.top-bar .cta-buttons a {
-  background: var(--color-accent);          /* was var(--color-accent) already */
-  color: #fff;
-  padding: 0.4rem 0.75rem;
-  font-size: 0.8rem;
-}
+    /* Top bar */
+    .top-bar { background: var(--color-background); border-bottom: 1px solid #ddd; font-size: 0.9rem; }
+    .top-bar .container { display: flex; align-items: center; padding: 0.25rem 0; gap: 1.5rem; flex-wrap: wrap; }
+    .social-icons span { color: var(--color-text); }
+    .social-icons a { margin-right: 0.5rem; color: var(--color-text); text-decoration: none; font-weight: bold; font-size: 0.95rem; }
 
-  /* Main navigation */
-    .main-nav {
-      background: var(--color-primary);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    .main-nav .container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      padding: 0.5rem 0;
-    }
-    .logo img {
-      height: 50px;
-    }
-    .nav-toggle {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      color: #fff;
-      cursor: pointer;
-    }
-    nav {
-      flex: 1;
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    nav li {
-      position: relative;
-      margin: 0 1rem;
-    }
-    nav a,
-    .submenu-toggle {
-      color: #fff;
-      text-decoration: none;
-      padding: 0.5rem;
-      display: block;
-      white-space: nowrap;
-    }
+    /* Main navigation */
+    .main-nav { background: var(--color-primary); position: sticky; top: 0; z-index: 1000; }
+    .main-nav .container { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0; flex-wrap: wrap; }
+    .logo img { height: 50px; }
+    .nav-toggle { display: none; background: none; border: none; font-size: 1.5rem; color: #fff; cursor: pointer; }
+    nav { flex: 1; }
+    nav ul { list-style: none; display: flex; justify-content: center; flex-wrap: wrap; }
+    nav li { position: relative; margin: 0 1rem; }
+    nav a, .submenu-toggle { color: #fff; text-decoration: none; padding: 0.5rem; display: block; white-space: nowrap; }
+
     /* Dropdown */
-    .has-submenu .submenu {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      background: #fff;
-      min-width: 180px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      z-index: 100;
-    }
-    .has-submenu:hover > .submenu,
-    .has-submenu.open > .submenu {
-      display: block;
-    }
-    .submenu li {
-      margin: 0;
-    }
-    .submenu a {
-      color: var(--color-text);
-      padding: 0.5rem 1rem;
-    }
-    .phone-btn {
-      background: var(--color-accent);
-      color: #fff;
-      padding: 0.5rem 1rem;
-      border-radius: 4px;
-      text-decoration: none;
-      font-weight: bold;
-      margin-top: 0.25rem;
-    }
+    .has-submenu .submenu { display: none; position: absolute; top: 100%; left: 0; background: #fff; min-width: 180px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); z-index: 100; }
+    .has-submenu.open > .submenu,
+    .has-submenu:hover > .submenu { display: block; }
+    .submenu li { margin: 0; }
+    .submenu a { color: var(--color-text); padding: 0.5rem 1rem; }
 
-  
-    /* Hero Section */
-    .hero {
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      height: 80vh;
-      background: url('https://via.placeholder.com/1600x900') center/cover no-repeat;
-      color: #fff;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.5);
-      padding: var(--spacing-base);
-    }
-    .hero .content {
-      max-width: 600px;
-    }
-    .hero h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-    }
-    .hero p {
-      font-size: 1.25rem;
-      margin-bottom: var(--spacing-base);
-    }
-    .btn-primary {
-      background: var(--color-secondary);
-      color: #fff;
-      padding: 0.75rem 1.5rem;
-      border-radius: 4px;
-      text-decoration: none;
-      font-weight: bold;
-    }
+    .phone-btn { background: var(--color-accent); color: #fff; padding: 0.5rem 1rem; border-radius: 4px; text-decoration: none; font-weight: bold; }
 
-    /* Services Overview */
-    .section {
-      padding: calc(var(--spacing-base) * 2) 0;
-    }
-    .section h2 {
-      font-size: 2rem;
-      color: var(--color-primary);
-      margin-bottom: var(--spacing-base);
-      text-align: center;
-    }
-    .features {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: var(--spacing-base);
-    }
-    @media (min-width: 768px) {
-      .features {
-        grid-template-columns: repeat(4,1fr);
-      }
-    }
-    .feature-item {
-      background: #f9f9f9;
-      padding: var(--spacing-base);
-      border-radius: 4px;
-      text-align: center;
-    }
-    .feature-item img {
-      width: 50px;
-      margin-bottom: 0.5rem;
-    }
-    .feature-item h3 {
-      margin-bottom: 0.5rem;
-      color: var(--color-primary);
-    }
+    /* Hero */
+    .hero { display: flex; align-items: center; height: 80vh; background: url('https://via.placeholder.com/1600x900') center/cover no-repeat; color: #fff; text-shadow: 0 2px 4px rgba(0,0,0,0.5); padding: var(--spacing-base); }
+    .hero .content { max-width: 600px; }
+    .hero h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+    .hero p { font-size: 1.25rem; margin-bottom: var(--spacing-base); }
+    .btn-primary { background: var(--color-secondary); color: #fff; padding: 0.75rem 1.5rem; border-radius: 4px; text-decoration: none; font-weight: bold; }
 
-    /* Mobile Styles */
+    /* Services */
+    .section { padding: calc(var(--spacing-base)*2) 0; }
+    .section h2 { font-size: 2rem; color: var(--color-primary); text-align: center; margin-bottom: var(--spacing-base); }
+    .features { display: grid; grid-template-columns: 1fr; gap: var(--spacing-base); }
+    @media (min-width: 768px) { .features { grid-template-columns: repeat(4,1fr); } }
+    .feature-item { background: #f9f9f9; padding: var(--spacing-base); border-radius: 4px; text-align: center; }
+    .feature-item img { width: 50px; margin-bottom: 0.5rem; }
+    .feature-item h3 { color: var(--color-primary); margin-bottom: 0.5rem; }
+
+    /* Mobile */
     @media (max-width: 768px) {
-      .nav-toggle {
-        display: block;
-      }
-      nav ul {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-      }
-      nav ul.active {
-        display: flex;
-      }
-      nav li {
-        margin: 0;
-      }
-      nav li ul {
-        position: static;
-        box-shadow: none;
-      }
-      .phone-btn {
-        margin: 0.5rem 0;
-      }
+      .nav-toggle { display: block; }
+      nav ul { display: none; flex-direction: column; width: 100%; }
+      nav ul.active { display: flex; }
+      .has-submenu .submenu { position: static; box-shadow: none; }
+      nav li { width: 100%; margin: 0; }
     }
   </style>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const toggle = document.querySelector('.nav-toggle');
-      const menu = document.querySelector('nav ul');
-      toggle.addEventListener('click', () => menu.classList.toggle('active'));
+      // mobile nav toggle
+      document.querySelector('.nav-toggle').addEventListener('click', () => {
+        document.querySelector('nav ul').classList.toggle('active');
+      });
+      // submenu toggle for clicks
+      document.querySelectorAll('.has-submenu > .submenu-toggle').forEach(toggle => {
+        toggle.addEventListener('click', e => {
+          e.preventDefault();
+          toggle.parentElement.classList.toggle('open');
+        });
+      });
     });
   </script>
 </head>
@@ -253,66 +91,57 @@
   <header class="top-bar">
     <div class="container social-icons">
       <span>Connect with us:</span>
-      <a href="https://www.facebook.com/YourPage" target="_blank" rel="noopener">Facebook</a>
-      <a href="https://www.google.com" target="_blank" rel="noopener">Google</a>
+      <a href="https://www.facebook.com/YourPage" target="_blank">Facebook</a>
+      <a href="https://www.google.com" target="_blank">Google</a>
     </div>
   </header>
 
-<!-- Main navigation -->
-<header class="main-nav">
-  <div class="container">
-    <!-- Left group: logo + phone -->
-    <div class="nav-left">
-      <a href="/" class="logo">
-        <img src="assets/logo.png" alt="ComfortPro HVAC Services Logo" height="50">
-      </a>
+  <!-- Main navigation -->
+  <header class="main-nav">
+    <div class="container">
+      <a href="/" class="logo"><img src="assets/logo.png" alt="ComfortPro HVAC Logo"></a>
       <a href="tel:+13055551234" class="phone-btn">(305) 555-1234</a>
+      <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+      <nav>
+        <ul>
+          <li class="has-submenu">
+            <a href="#" class="submenu-toggle">About Us ▾</a>
+            <ul class="submenu">
+              <li><a href="#story">Our Story</a></li>
+              <li><a href="#careers">Careers</a></li>
+              <li><a href="#testimonials">Testimonials</a></li>
+            </ul>
+          </li>
+          <li class="has-submenu">
+            <a href="#" class="submenu-toggle">Heating ▾</a>
+            <ul class="submenu">
+              <li><a href="#furnace-install">Furnace Installation & Replacement</a></li>
+              <li><a href="#furnace-repair">Furnace Repair</a></li>
+              <li><a href="#heat-pump">Heat Pump Services</a></li>
+            </ul>
+          </li>
+          <li class="has-submenu">
+            <a href="#" class="submenu-toggle">Cooling ▾</a>
+            <ul class="submenu">
+              <li><a href="#ac-install">AC Installation & Replacement</a></li>
+              <li><a href="#ac-repair">AC Repair & Maintenance</a></li>
+              <li><a href="#thermostats">Thermostats</a></li>
+            </ul>
+          </li>
+          <li><a href="#tankless">Tankless</a></li>
+          <li><a href="#service-area">Service Area</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+        </ul>
+      </nav>
     </div>
+  </header>
 
-    <!-- Navigation links -->
-    <nav>
-      <ul>
-        <li tabindex="0">
-          <a href="#">About Us ▾</a>
-          <ul>
-            <li><a href="#">Our Story</a></li>
-            <li><a href="#">Careers</a></li>
-            <li><a href="#">Testimonials</a></li>
-          </ul>
-        </li>
-        <li tabindex="0">
-          <a href="#">Heating ▾</a>
-          <ul>
-            <li><a href="#">Furnace Installation & Replacement</a></li>
-            <li><a href="#">Furnace Repair</a></li>
-            <li><a href="#">Heat Pump Services</a></li>
-          </ul>
-        </li>
-        <li tabindex="0">
-          <a href="#">Cooling ▾</a>
-          <ul>
-            <li><a href="#">AC Installation & Replacement</a></li>
-            <li><a href="#">AC Repair & Maintenance</a></li>
-            <li><a href="#">Thermostats</a></li>
-          </ul>
-        </li>
-        <li><a href="#">Tankless</a></li>
-        <li><a href="#">Service Area</a></li>
-        <li><a href="#">Contact Us</a></li>
-      </ul>
-    </nav>
-
-    <!-- Right group: mobile toggle -->
-    <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
-  </div>
-</header>
-
-  <!-- CTA buttons below nav -->
+  <!-- CTA row -->
   <div class="cta-row">
     <div class="container">
-      <a href="#">BUY FILTERS</a>
-      <a href="#">MAINTENANCE SUBSCRIPTION</a>
-      <a href="#">GET AN INSTANT QUOTE</a>
+      <a href="#filters" class="btn-primary">BUY FILTERS</a>
+      <a href="#subscription" class="btn-primary">MAINTENANCE SUBSCRIPTION</a>
+      <a href="#quote" class="btn-primary">GET AN INSTANT QUOTE</a>
     </div>
   </div>
 
