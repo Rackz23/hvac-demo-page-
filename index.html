@@ -28,8 +28,25 @@
     /* Main navigation */
     .main-nav { background: var(--color-primary); position: sticky; top: 0; z-index: 1000; }
     .main-nav .container { display: flex; flex-direction: column; align-items: center; padding: 0.5rem 0; }
-    .logo img { height: 50px; margin: var(--spacing-base) 0; }
-    .phone-btn { background: var(--color-accent); color: #fff; padding: 0.5rem 1rem; border-radius: 4px; text-decoration: none; font-weight: bold; margin: 0 var(--spacing-base); }
+    .header-logo img {
+      height: 80px;
+      display: block;
+      margin: var(--spacing-base) 0;
+    }
+    .header-cta {
+      display: flex;
+      justify-content: center;
+      gap: var(--spacing-base);
+      margin: var(--spacing-base) 0;
+    }
+    .header-cta .phone-btn {
+      background: var(--color-accent);
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: bold;
+    }
     .nav-toggle { display: block; background: none; border: none; font-size: 1.5rem; color: #fff; cursor: pointer; margin: var(--spacing-base) 0; }
     nav { width: 100%; }
     nav ul { list-style: none; display: none; flex-direction: column; background: var(--color-primary); }
@@ -38,26 +55,24 @@
     nav a, .submenu-toggle { color: #fff; text-decoration: none; padding: var(--spacing-base); display: block; white-space: nowrap; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.2); }
     nav a:hover, .submenu-toggle:hover { background: rgba(255,255,255,0.1); }
 
-   /* Dropdown */
-.has-submenu .submenu {
-  display: none;
-  flex-direction: column;
-  background: var(--color-secondary);
-}
-.has-submenu.open > .submenu {
-  display: flex;
-}
-.submenu li {
-  margin: 0;
-}
-.submenu a {
-  color: #fff;
-  padding: var(--spacing-base);
-  border-bottom: 1px solid rgba(255,255,255,0.2);
-}
-.submenu a:hover {
-  background: var(--color-accent);
-}
+    /* Dropdown */
+    .has-submenu .submenu {
+      display: none;
+      flex-direction: column;
+      background: var(--color-secondary);
+    }
+    .has-submenu.open > .submenu {
+      display: flex;
+    }
+    .submenu li { margin: 0; }
+    .submenu a {
+      color: #fff;
+      padding: var(--spacing-base);
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+    .submenu a:hover {
+      background: var(--color-accent);
+    }
 
     /* Hero */
     .hero { display: flex; align-items: center; justify-content: center; height: 80vh; background: url('https://via.placeholder.com/1600x900') center/cover no-repeat; color: #fff; text-shadow: 0 2px 4px rgba(0,0,0,0.5); padding: var(--spacing-base); text-align: center; }
@@ -122,10 +137,15 @@
   <!-- Main navigation -->
   <header class="main-nav">
     <div class="container">
-      <a href="/" class="logo">
-        <img src="assets/logo.png" alt="ComfortPro HVAC Logo" />
-      </a>
-      <a href="tel:+13055551234" class="phone-btn">(305) 555-1234</a>
+      <div class="header-logo">
+        <a href="/" class="logo">
+          <img src="assets/logo.png" alt="ComfortPro HVAC Logo" />
+        </a>
+      </div>
+      <div class="header-cta">
+        <a href="tel:+13055551234" class="phone-btn">(305) 555-1234</a>
+        <a href="#request-service" class="phone-btn">Request a Service</a>
+      </div>
       <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
 
       <nav>
