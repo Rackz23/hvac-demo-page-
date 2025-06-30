@@ -70,6 +70,30 @@
     .section p, .section ul { margin-bottom: var(--spacing-base); }
     .section ul { list-style: disc inside; }
 
+    /* Gallery */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--spacing-base);
+      margin-bottom: var(--spacing-base);
+    }
+    .gallery figure {
+      background: #f9f9f9;
+      border-radius: 4px;
+      overflow: hidden;
+      text-align: center;
+    }
+    .gallery img {
+      width: 100%;
+      display: block;
+      height: auto;
+    }
+    .gallery figcaption {
+      padding: 0.5rem;
+      font-size: 0.9rem;
+      color: var(--color-text);
+    }
+
     /* Content-level CTA */
     .cta-row { display: flex; justify-content: center; margin-top: var(--spacing-base); }
     .btn-primary {
@@ -162,6 +186,26 @@
       <h1 class="section-title">Furnace Installation &amp; Replacement</h1>
       <p>Whether you’re replacing an old furnace or installing a new energy-efficient model, our factory-trained technicians handle every step—from load calculations and system selection to precise installation and start-up testing.</p>
 
+      <!-- Image Gallery -->
+      <div class="gallery">
+        <figure>
+          <img src="assets/furnace1.jpg" alt="Residential furnace being installed">
+          <figcaption>High-efficiency home furnace installation</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/furnace2.jpg" alt="HVAC technician adjusting controls">
+          <figcaption>Technician calibrating new furnace system</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/furnace3.jpg" alt="Close-up of blower motor installation">
+          <figcaption>Installing precision blower motor</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/furnace4.jpg" alt="Finished furnace installation in utility room">
+          <figcaption>Completed furnace installation setup</figcaption>
+        </figure>
+      </div>
+
       <h2>What’s Included</h2>
       <ul>
         <li>Free in-home estimate &amp; system sizing</li>
@@ -186,3 +230,4 @@
   </section>
 </body>
 </html>
+
