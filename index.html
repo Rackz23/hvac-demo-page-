@@ -69,84 +69,87 @@
   font-size: 0.8rem;
 }
 
+/* Main navigation */
+.main-nav {
+  background: var(--color-primary);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+.main-nav .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0.5rem 0;
+}
+.logo img {
+  height: 50px;
+}
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #fff;
+  cursor: pointer;
+}
+nav {
+  flex: 1;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+nav li {
+  position: relative;
+  margin: 0 1rem;
+}
+/* Make both links and submenu toggles clickable */
+nav a,
+.submenu-toggle {
+  color: #fff;
+  text-decoration: none;
+  padding: 0.5rem;
+  display: block;
+  white-space: nowrap;
+}
 
-    /* Main navigation */
-    .main-nav {
-      background: var(--color-primary);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    .main-nav .container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      padding: 0.5rem 0;
-    }
-    .logo img {
-      height: 50px;
-    }
-    .nav-toggle {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      color: #fff;
-      cursor: pointer;
-    }
-    nav {
-      flex: 1;
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    nav li {
-      position: relative;
-      margin: 0 1rem;
-    }
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      padding: 0.5rem 0;
-      display: block;
-      white-space: nowrap;
-    }
-    /* Dropdown */
-    nav li ul {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      background: #fff;
-      min-width: 180px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      z-index: 100;
-    }
-    nav li:hover > ul,
-    nav li:focus-within > ul {
-      display: block;
-    }
-    nav li ul li {
-      margin: 0;
-    }
-    nav li ul a {
-      color: var(--color-text);
-      padding: 0.5rem 1rem;
-    }
-    .phone-btn {
-      background: var(--color-accent);
-      color: #fff;
-      padding: 0.5rem 1rem;
-      border-radius: 4px;
-      text-decoration: none;
-      font-weight: bold;
-      margin-top: 0.25rem;
-    }
+/* Dropdown fixes */
+.has-submenu .submenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #fff;
+  min-width: 180px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  z-index: 100;
+}
+.has-submenu:hover > .submenu,
+.has-submenu.open > .submenu {
+  display: block;
+}
+.submenu li {
+  margin: 0;
+}
+.submenu a {
+  color: var(--color-text);
+  padding: 0.5rem 1rem;
+}
 
+.phone-btn {
+  background: var(--color-accent);
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 0.25rem;
+}
+  
     /* Hero Section */
     .hero {
       display: flex;
