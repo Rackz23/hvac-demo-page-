@@ -1,1 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Furnace Installation &amp; Replacement | ComfortPro HVAC</title>
+  <style>
+    /* ← same CSS as your other pages (variables, nav, section, CTA) */
+    :root {
+      --color-primary: #004b8d;
+      --color-secondary: #f0a500;
+      --color-accent: #e94f37;
+      --color-background: #ffffff;
+      --color-text: #333333;
+      --font-base: 'Helvetica Neue', Arial, sans-serif;
+      --spacing-base: 1rem;
+      --max-width: 1200px;
+    }
+    * { box-sizing: border-box; margin:0; padding:0; }
+    body { font-family: var(--font-base); color: var(--color-text); background: var(--color-background); line-height:1.6; }
+    .container { width:90%; max-width:var(--max-width); margin:0 auto; }
+    /* Top bar, nav, dropdown, section, CTA styling exactly as before... */
+    /* (Omitted here for brevity—copy your demo page CSS) */
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      /* same nav-toggle & submenu JS as your other pages */
+      const navList = document.querySelector('nav ul');
+      document.querySelector('.nav-toggle').addEventListener('click', ()=> {
+        navList.classList.toggle('active');
+        if (!navList.classList.contains('active')) {
+          document.querySelectorAll('.has-submenu.open').forEach(li=>li.classList.remove('open'));
+        }
+      });
+      document.querySelectorAll('.has-submenu>.submenu-toggle').forEach(toggle=>{
+        toggle.addEventListener('click', e=>{
+          e.preventDefault();
+          toggle.parentElement.classList.toggle('open');
+        });
+      });
+    });
+  </script>
+</head>
+<body>
+  <!-- Top bar + Main nav (copy exactly from your demo) -->
+  <header class="top-bar">…</header>
+  <header class="main-nav">…</header>
+
+  <!-- Page Content -->
+  <section id="furnace-installation" class="section">
+    <div class="container">
+      <h1 class="section-title">Furnace Installation &amp; Replacement</h1>
+      <p>Whether you’re replacing an old furnace or installing a new energy-efficient model, our factory-trained technicians handle every step—from load calculations and system selection to precise installation and start-up testing.</p>
+
+      <h2>What’s Included</h2>
+      <ul>
+        <li>Free in-home estimate &amp; system sizing</li>
+        <li>High-efficiency furnace options (up to 98% AFUE)</li>
+        <li>Precision ductwork sealing and airflow balancing</li>
+        <li>Comprehensive start-up &amp; homeowner orientation</li>
+        <li>1-year labor warranty + manufacturer parts warranty</li>
+      </ul>
+
+      <h2>Why Choose ComfortPro?</h2>
+      <ul>
+        <li>EPA-certified installers</li>
+        <li>30+ years of combined team experience</li>
+        <li>Flexible financing &amp; military discounts</li>
+        <li>24/7 emergency replacement service</li>
+      </ul>
+
+      <div class="cta-row">
+        <a href="#request-service" class="btn-primary">Request Installation</a>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
 
