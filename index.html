@@ -38,11 +38,26 @@
     nav a, .submenu-toggle { color: #fff; text-decoration: none; padding: var(--spacing-base); display: block; white-space: nowrap; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.2); }
     nav a:hover, .submenu-toggle:hover { background: rgba(255,255,255,0.1); }
 
-    /* Dropdown */
-    .has-submenu .submenu { display: none; flex-direction: column; }
-    .has-submenu.open > .submenu { display: flex; }
-    .submenu li { margin: 0; }
-    .submenu a { color: #fff; padding: var(--spacing-base); border-bottom: 1px solid rgba(255,255,255,0.2); }
+   /* Dropdown */
+.has-submenu .submenu {
+  display: none;
+  flex-direction: column;
+  background: var(--color-secondary);
+}
+.has-submenu.open > .submenu {
+  display: flex;
+}
+.submenu li {
+  margin: 0;
+}
+.submenu a {
+  color: #fff;
+  padding: var(--spacing-base);
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+.submenu a:hover {
+  background: var(--color-accent);
+}
 
     /* Hero */
     .hero { display: flex; align-items: center; justify-content: center; height: 80vh; background: url('https://via.placeholder.com/1600x900') center/cover no-repeat; color: #fff; text-shadow: 0 2px 4px rgba(0,0,0,0.5); padding: var(--spacing-base); text-align: center; }
