@@ -21,35 +21,34 @@
 
     /* Top bar */
     .top-bar { background: var(--color-background); border-bottom: 1px solid #ddd; font-size: 0.9rem; }
-    .top-bar .container { display: flex; align-items: center; padding: 0.25rem 0; gap: 1.5rem; flex-wrap: wrap; }
+    .top-bar .container { display: flex; align-items: center; padding: 0.25rem 0; gap: 1.5rem; flex-wrap: wrap; justify-content: center; }
     .social-icons span { color: var(--color-text); }
     .social-icons a { margin-right: 0.5rem; color: var(--color-text); text-decoration: none; font-weight: bold; font-size: 0.95rem; }
 
     /* Main navigation */
     .main-nav { background: var(--color-primary); position: sticky; top: 0; z-index: 1000; }
     .main-nav .container { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0; flex-wrap: wrap; }
-    .logo img { height: 50px; }
-    .nav-toggle { display: none; background: none; border: none; font-size: 1.5rem; color: #fff; cursor: pointer; }
+    .logo img { height: 50px; display: block; margin: 0 var(--spacing-base); }
+    .phone-btn { background: var(--color-accent); color: #fff; padding: 0.5rem 1rem; border-radius: 4px; text-decoration: none; font-weight: bold; margin: 0 var(--spacing-base); }
+    .nav-toggle { display: none; background: none; border: none; font-size: 1.5rem; color: #fff; cursor: pointer; margin-right: var(--spacing-base); }
     nav { flex: 1; }
     nav ul { list-style: none; display: flex; justify-content: center; flex-wrap: wrap; }
     nav li { position: relative; margin: 0 1rem; }
     nav a, .submenu-toggle { color: #fff; text-decoration: none; padding: 0.5rem; display: block; white-space: nowrap; }
 
     /* Dropdown */
-    .has-submenu .submenu { display: none; position: absolute; top: 100%; left: 0; background: #fff; min-width: 180px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); z-index: 100; }
+    .has-submenu .submenu { display: none; position: absolute; top: 100%; left: 0; background: var(--color-primary); min-width: 180px; box-shadow: 0 2px 4px rgba(0,0,0,0.2); z-index: 100; }
     .has-submenu.open > .submenu,
     .has-submenu:hover > .submenu { display: block; }
     .submenu li { margin: 0; }
-    .submenu a { color: var(--color-text); padding: 0.5rem 1rem; }
-
-    .phone-btn { background: var(--color-accent); color: #fff; padding: 0.5rem 1rem; border-radius: 4px; text-decoration: none; font-weight: bold; }
+    .submenu a { color: #fff; padding: 0.5rem 1rem; }
 
     /* Hero */
-    .hero { display: flex; align-items: center; height: 80vh; background: url('https://via.placeholder.com/1600x900') center/cover no-repeat; color: #fff; text-shadow: 0 2px 4px rgba(0,0,0,0.5); padding: var(--spacing-base); }
+    .hero { display: flex; align-items: center; justify-content: center; height: 80vh; background: url('https://via.placeholder.com/1600x900') center/cover no-repeat; color: #fff; text-shadow: 0 2px 4px rgba(0,0,0,0.5); padding: var(--spacing-base); text-align: center; }
     .hero .content { max-width: 600px; }
     .hero h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
     .hero p { font-size: 1.25rem; margin-bottom: var(--spacing-base); }
-    .btn-primary { background: var(--color-secondary); color: #fff; padding: 0.75rem 1.5rem; border-radius: 4px; text-decoration: none; font-weight: bold; }
+    .btn-primary { background: var(--color-secondary); color: #fff; padding: 0.75rem 1.5rem; border-radius: 4px; text-decoration: none; font-weight: bold; display: inline-block; }
 
     /* Services */
     .section { padding: calc(var(--spacing-base)*2) 0; }
@@ -60,13 +59,22 @@
     .feature-item img { width: 50px; margin-bottom: 0.5rem; }
     .feature-item h3 { color: var(--color-primary); margin-bottom: 0.5rem; }
 
-    /* Mobile */
+    /* CTA row */
+    .cta-row .container { padding: var(--spacing-base) 0; display: flex; justify-content: center; gap: var(--spacing-base); }
+    .cta-row a { background: var(--color-secondary); color: #fff; padding: var(--spacing-base) 1.5rem; border-radius: 4px; text-decoration: none; font-weight: bold; }
+
+    /* Mobile styles */
     @media (max-width: 768px) {
       .nav-toggle { display: block; }
-      nav ul { display: none; flex-direction: column; width: 100%; }
+      nav ul { display: none; flex-direction: column; width: 100%; background: var(--color-primary); margin: 0; }
       nav ul.active { display: flex; }
-      .has-submenu .submenu { position: static; box-shadow: none; }
       nav li { width: 100%; margin: 0; }
+      nav li a, .submenu-toggle { padding: var(--spacing-base); text-align: center; border-bottom: 1px solid rgba(255,255,255,0.2); }
+      .has-submenu .submenu { position: static; }
+      .submenu a { border-bottom: 1px solid rgba(255,255,255,0.2); }
+      .main-nav .container { flex-direction: column; align-items: center; }
+      .logo, .phone-btn, .nav-toggle { margin: var(--spacing-base) 0; }
+      .top-bar .container { justify-content: center; }
     }
   </style>
   <script>
@@ -159,26 +167,10 @@
     <div class="container">
       <h2>Our HVAC Services</h2>
       <div class="features">
-        <div class="feature-item">
-          <img src="https://via.placeholder.com/50?text=AC" alt="AC Repair Icon">
-          <h3>AC Repair & Maintenance</h3>
-          <p>24/7 emergency repairs to keep you cool during Miami’s hottest days.</p>
-        </div>
-        <div class="feature-item">
-          <img src="https://via.placeholder.com/50?text=Install" alt="System Installation Icon">
-          <h3>New System Installation</h3>
-          <p>Professional installation of energy-efficient HVAC systems.</p>
-        </div>
-        <div class="feature-item">
-          <img src="https://via.placeholder.com/50?text=Duct" alt="Duct Cleaning Icon">
-          <h3>Duct Cleaning</h3>
-          <p>Improve indoor air quality with thorough duct cleaning services.</p>
-        </div>
-        <div class="feature-item">
-          <img src="https://via.placeholder.com/50?text=Other" alt="Other Services Icon">
-          <h3>Other Services</h3>
-          <p>Beyond our main services, we install, repair, and maintain air handlers, thermostats, and more to keep your property comfortable year-round.</p>
-        </div>
+        <div class="feature-item"><img src="https://via.placeholder.com/50?text=AC" alt="AC Repair Icon"><h3>AC Repair & Maintenance</h3><p>24/7 emergency repairs to keep you cool.</p></div>
+        <div class="feature-item"><img src="https://via.placeholder.com/50?text=Install" alt="Install Icon"><h3>New System Installation</h3><p>Expert setup of energy-efficient systems.</p></div>
+        <div class="feature-item"><img src="https://via.placeholder.com/50?text=Duct" alt="Duct Icon"><h3>Duct Cleaning</h3><p>Improve indoor air quality with thorough duct cleaning.</p></div>
+        <div class="feature-item"><img src="https://via.placeholder.com/50?text=Other" alt="Other Icon"><h3>Other Services</h3><p>Thermostats, air handlers, and more.</p></div>
       </div>
     </div>
   </section>
