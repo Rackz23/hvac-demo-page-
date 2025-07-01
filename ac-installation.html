@@ -1,138 +1,235 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ComfortPro HVAC – AC Installation</title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AC Installation &amp; Replacement | ComfortPro HVAC</title>
   <style>
     :root {
-      --primary-color: #007AFF;
-      --secondary-color: #005BB5;
-      --accent-color: #F5A623;
-      --text-color: #333;
-      --bg-color: #f9f9f9;
-      --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      --spacing: 1rem;
+      --color-primary: #004b8d;
+      --color-secondary: #f0a500;
+      --color-accent: #e94f37;
+      --color-background: #ffffff;
+      --color-text: #333333;
+      --font-base: 'Helvetica Neue', Arial, sans-serif;
+      --spacing-base: 1rem;
+      --max-width: 1200px;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: var(--font-family); color: var(--text-color); background: var(--bg-color); line-height: 1.6; }
-    header { background: var(--primary-color); color: white; padding: var(--spacing); }
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 var(--spacing); }
-    .nav { display: flex; justify-content: space-between; align-items: center; }
-    .nav a { color: white; text-decoration: none; margin-left: var(--spacing); }
-    .hero { background: url('assets/ac-install-hero.jpg') center/cover no-repeat; color: white; padding: 6rem 0; text-align: center; }
-    .hero h1 { font-size: 2.5rem; margin-bottom: var(--spacing); }
-    .hero p { font-size: 1.125rem; margin-bottom: 2rem; }
-    .btn { display: inline-block; padding: 0.75rem 1.5rem; background: var(--accent-color); color: white; text-decoration: none; border-radius: 0.25rem; }
-    section { padding: 4rem 0; }
-    h2 { font-size: 1.75rem; margin-bottom: var(--spacing); }
-    p { margin-bottom: var(--spacing); }
-    .steps, .brands { display: grid; gap: var(--spacing); }
-    .steps { grid-template-columns: 1fr 1fr; }
-    .step-card { background: white; border-radius: 0.5rem; padding: var(--spacing); box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
-    .brands { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
-    .brand-logo { background: white; border-radius: 0.5rem; padding: var(--spacing); box-shadow: 0 2px 8px rgba(0,0,0,0.1); text-align: center; }
-    .contact-form { background: white; padding: var(--spacing); border-radius: 0.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1); max-width: 600px; margin: 0 auto; display: grid; gap: var(--spacing); }
-    .contact-form label { display: block; margin-bottom: 0.5rem; }
-    .contact-form input, .contact-form textarea { width: 100%; padding: 0.5rem; border: 1px solid #ccc; border-radius: 0.25rem; }
-    footer { background: #222; color: #ddd; text-align: center; padding: var(--spacing); font-size: 0.875rem; }
+    body { font-family: var(--font-base); color: var(--color-text); background: var(--color-background); line-height: 1.6; }
+    .container { width: 90%; max-width: var(--max-width); margin: 0 auto; }
+
+    /* Top bar */
+    .top-bar { background: var(--color-background); border-bottom: 1px solid #ddd; font-size: 0.9rem; }
+    .top-bar .container { display: flex; justify-content: center; align-items: center; padding: 0.25rem 0; gap: 1.5rem; flex-wrap: wrap; }
+    .social-icons span { color: var(--color-text); }
+    .social-icons a { margin-right: 0.5rem; color: var(--color-text); text-decoration: none; font-weight: bold; font-size: 0.95rem; }
+
+    /* Main navigation */
+    .main-nav { background: var(--color-primary); position: sticky; top: 0; z-index: 1000; }
+    .main-nav .container { display: flex; flex-direction: column; align-items: center; padding: 0.5rem 0; }
+    .header-logo img { height: 80px; margin: var(--spacing-base) 0; }
+    .header-cta { display: flex; justify-content: center; gap: var(--spacing-base); margin: var(--spacing-base) 0; }
+    .header-cta .phone-btn { background: var(--color-accent); color: #fff; padding: 0.5rem 1rem; border-radius: 4px; text-decoration: none; font-weight: bold; }
+    .nav-toggle { display: block; background: none; border: none; font-size: 1.5rem; color: #fff; cursor: pointer; margin: var(--spacing-base) 0; }
+
+    nav { width: 100%; }
+    nav ul { list-style: none; display: none; flex-direction: column; background: var(--color-primary); }
+    nav ul.active { display: flex; }
+    nav li { position: relative; width: 100%; }
+    nav a, .submenu-toggle {
+      color: #fff;
+      text-decoration: none;
+      padding: var(--spacing-base);
+      display: block;
+      text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+    nav a:hover, .submenu-toggle:hover { background: rgba(255,255,255,0.1); }
+
+    /* Dropdown */
+    .has-submenu .submenu { display: none; flex-direction: column; background: var(--color-secondary); }
+    .has-submenu.open > .submenu { display: flex; }
+    .submenu li { margin: 0; }
+    .submenu a { color: #fff; padding: var(--spacing-base); border-bottom: 1px solid rgba(255,255,255,0.2); }
+    .submenu a:hover { background: var(--color-accent); }
+
+    /* Section typography & spacing */
+    .section { padding: calc(var(--spacing-base)*2) 0; }
+    .section-title {
+      font-size: 2.5rem;
+      color: var(--color-primary);
+      text-align: center;
+      margin-bottom: var(--spacing-base);
+    }
+    .section h2 {
+      font-size: 1.75rem;
+      color: var(--color-primary);
+      margin: var(--spacing-base) 0 0.5rem;
+    }
+    .section p, .section ul { margin-bottom: var(--spacing-base); }
+    .section ul { list-style: disc inside; }
+
+    /* Gallery */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--spacing-base);
+      margin-bottom: var(--spacing-base);
+    }
+    .gallery figure {
+      background: #f9f9f9;
+      border-radius: 4px;
+      overflow: hidden;
+      text-align: center;
+    }
+    .gallery img {
+      width: 100%;
+      display: block;
+      height: auto;
+    }
+    .gallery figcaption {
+      padding: 0.5rem;
+      font-size: 0.9rem;
+      color: var(--color-text);
+    }
+
+    /* Content-level CTA */
+    .cta-row { display: flex; justify-content: center; margin-top: var(--spacing-base); }
+    .btn-primary {
+      background: var(--color-secondary);
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-block;
+    }
   </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const navList = document.querySelector('nav ul');
+      document.querySelector('.nav-toggle').addEventListener('click', () => {
+        navList.classList.toggle('active');
+        if (!navList.classList.contains('active')) {
+          document.querySelectorAll('.has-submenu.open').forEach(li => li.classList.remove('open'));
+        }
+      });
+      document.querySelectorAll('.has-submenu > .submenu-toggle').forEach(toggle => {
+        toggle.addEventListener('click', e => {
+          e.preventDefault();
+          toggle.parentElement.classList.toggle('open');
+        });
+      });
+    });
+  </script>
 </head>
 <body>
-  <header>
-    <div class="container nav">
-      <a href="index.html"><strong>ComfortPro HVAC</strong></a>
+
+  <!-- Top bar -->
+  <header class="top-bar">
+    <div class="container social-icons">
+      <span>Connect with us:</span>
+      <a href="https://www.facebook.com/YourPage" target="_blank">Facebook</a>
+      <a href="https://www.google.com" target="_blank">Google</a>
+    </div>
+  </header>
+
+  <!-- Main navigation -->
+  <header class="main-nav">
+    <div class="container">
+      <div class="header-logo">
+        <a href="/" class="logo"><img src="assets/logo.png" alt="ComfortPro HVAC Logo"/></a>
+      </div>
+      <div class="header-cta">
+        <a href="tel:+13055551234" class="phone-btn">(305) 555-1234</a>
+        <a href="#request-service" class="phone-btn">Request a Service</a>
+      </div>
+      <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
       <nav>
-        <a href="index.html">Home</a>
-        <a href="heating.html">Heating</a>
-        <a href="cooling.html">Cooling</a>
-        <a href="ac-installation.html">AC Installation</a>
-        <a href="contact.html">Contact</a>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li class="has-submenu">
+            <a href="#" class="submenu-toggle">About Us ▾</a>
+            <ul class="submenu">
+              <li><a href="our-story.html">Our Story</a></li>
+              <li><a href="careers.html">Careers</a></li>
+              <li><a href="testimonials.html">Testimonials</a></li>
+            </ul>
+          </li>
+          <li class="has-submenu">
+            <a href="#" class="submenu-toggle">Heating ▾</a>
+            <ul class="submenu">
+              <li><a href="furnace-installation.html">Furnace Installation &amp; Replacement</a></li>
+              <li><a href="furnace-repair.html">Furnace Repair</a></li>
+              <li><a href="heat-pump-services.html">Heat Pump Services</a></li>
+            </ul>
+          </li>
+          <li class="has-submenu">
+            <a href="#" class="submenu-toggle">Cooling ▾</a>
+            <ul class="submenu">
+              <li><a href="ac-installation.html">AC Installation &amp; Replacement</a></li>
+              <li><a href="ac-repair.html">AC Repair &amp; Maintenance</a></li>
+              <li><a href="thermostats.html">Thermostats</a></li>
+            </ul>
+          </li>
+          <li><a href="tankless.html">Tankless</a></li>
+          <li><a href="service-area.html">Service Area</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
       </nav>
     </div>
   </header>
 
-  <main>
-    <!-- Hero -->
-    <section class="hero">
-      <div class="container">
-        <h1>Professional AC Installation</h1>
-        <p>Precision installations for optimal performance, energy savings, and home comfort.</p>
-        <a href="#schedule-install" class="btn">Schedule Installation</a>
-      </div>
-    </section>
-
-    <!-- Why Install Professionally -->
-    <section class="container">
-      <h2>Why Choose Professional Installation?</h2>
-      <ul>
-        <li>✅ Proper sizing for maximum efficiency</li>
-        <li>✅ Expert placement to ensure even cooling</li>
-        <li>✅ Manufacturer warranty compliance</li>
-        <li>✅ Safe handling of refrigerants</li>
-      </ul>
-    </section>
-
-    <!-- Installation Process -->
-    <section class="container steps">
-      <h2>Our Installation Process</h2>
-      <div class="step-card">
-        <h3>1. Site Assessment</h3>
-        <p>We evaluate your home and cooling needs to recommend the right unit size and model.</p>
-      </div>
-      <div class="step-card">
-        <h3>2. System Removal</h3>
-        <p>Safe removal and disposal of your old equipment, recycling materials when possible.</p>
-      </div>
-      <div class="step-card">
-        <h3>3. Precision Installation</h3>
-        <p>Our certified technicians install and calibrate the new system for peak performance.</p>
-      </div>
-      <div class="step-card">
-        <h3>4. Final Testing</h3>
-        <p>We test airflow, refrigerant levels, and controls to ensure everything runs smoothly.</p>
-      </div>
-    </section>
-
-    <!-- Brands We Install -->
-    <section class="container brands">
-      <h2>Brands We Trust</h2>
-      <div class="brand-logo"><img src="assets/brand1.png" alt="Brand 1 logo"></div>
-      <div class="brand-logo"><img src="assets/brand2.png" alt="Brand 2 logo"></div>
-      <div class="brand-logo"><img src="assets/brand3.png" alt="Brand 3 logo"></div>
-      <div class="brand-logo"><img src="assets/brand4.png" alt="Brand 4 logo"></div>
-    </section>
-
-    <!-- Scheduling Form -->
-    <section id="schedule-install" class="container">
-      <h2>Ready to Install?</h2>
-      <form class="contact-form">
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" placeholder="Your name" required>
-
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" placeholder="you@example.com" required>
-
-        <label for="phone">Phone</label>
-        <input type="tel" id="phone" name="phone" placeholder="(123) 456-7890" required>
-
-        <label for="address">Service Address</label>
-        <input type="text" id="address" name="address" placeholder="123 Main St" required>
-
-        <label for="preferred-date">Preferred Date</label>
-        <input type="date" id="preferred-date" name="preferred-date">
-
-        <button type="submit" class="btn">Submit</button>
-      </form>
-    </section>
-  </main>
-
-  <footer>
+  <!-- AC Installation Section -->
+  <section id="ac-installation" class="section">
     <div class="container">
-      <p>&copy; 2025 ComfortPro HVAC. All rights reserved.</p>
-      <p>1234 Cool St, Suite 100, Orlando, FL | <a href="tel:+13075551234">(307) 555-1234</a></p>
+      <h1 class="section-title">AC Installation &amp; Replacement</h1>
+      <p>From precise load calculations to expert setup and testing, our certified technicians ensure your new cooling system delivers lasting comfort and efficiency.</p>
+
+      <!-- Image Gallery -->
+      <div class="gallery">
+        <figure>
+          <img src="assets/ac1.jpg" alt="Outdoor AC unit installation">
+          <figcaption>Energy-efficient AC unit installation</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/ac2.jpg" alt="Technician connecting refrigerant lines">
+          <figcaption>Professional refrigerant line connection</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/ac3.jpg" alt="Ductwork inspection and sealing">
+          <figcaption>Comprehensive ductwork inspection &amp; sealing</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/ac4.jpg" alt="Indoor AC unit mounted">
+          <figcaption>Indoor unit precision mounting</figcaption>
+        </figure>
+      </div>
+
+      <h2>What’s Included</h2>
+      <ul>
+        <li>Free in-home estimate &amp; system sizing</li>
+        <li>High-efficiency central AC options</li>
+        <li>Professional ductwork modification &amp; sealing</li>
+        <li>Comprehensive start-up &amp; homeowner tutorial</li>
+        <li>1-year labor warranty + manufacturer parts warranty</li>
+      </ul>
+
+      <h2>Why Choose ComfortPro?</h2>
+      <ul>
+        <li>EPA-certified installers</li>
+        <li>30+ years of combined team experience</li>
+        <li>Flexible financing options &amp; exclusive discounts</li>
+        <li>24/7 emergency replacement service</li>
+      </ul>
+
+      <div class="cta-row">
+        <a href="#request-service" class="btn-primary">Request Installation</a>
+      </div>
     </div>
-  </footer>
+  </section>
+
 </body>
 </html>
 
