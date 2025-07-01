@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tankless Water Heaters | ComfortPro HVAC</title>
+  <style>
+    :root {
+      --color-primary: #004b8d;
+      --color-secondary: #f0a500;
+      --color-accent: #e94f37;
+      --color-background: #ffffff;
+      --color-text: #333333;
+      --font-base: 'Helvetica Neue', Arial, sans-serif;
+      --spacing-base: 1rem;
+      --max-width: 1200px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--font-base); color: var(--color-text); background: var(--color-background); line-height: 1.6; }
+    .container { width: 90%; max-width: var(--max-width); margin: 0 auto; }
+
+    /* Top bar */
+    .top-bar { background: var(--color-background); border-bottom: 1px solid #ddd; font-size: 0.9rem; }
+    .top-bar .container { display: flex; justify-content: center; align-items: center; padding: 0.25rem 0; gap: 1.5rem; flex-wrap: wrap; }
+    .social-icons span { color: var(--color-text); }
+    .social-icons a { margin-right: 0.5rem; color: var(--color-text); text-decoration: none; font-weight: bold; font-size: 0.95rem; }
+
+    /* Main navigation */
+    .main-nav { background: var(--color-primary); position: sticky; top: 0; z-index: 1000; }
+    .main-nav .container { display: flex; flex-direction: column; align-items: center; padding: 0.5rem 0; }
+    .header-logo img { height: 80px; margin: var(--spacing-base) 0; }
+    .header-cta { display: flex; justify-content: center; gap: var(--spacing-base); margin: var(--spacing-base) 0; }
+    .header-cta .phone-btn { background: var(--color-accent); color: #fff; padding: 0.5rem 1rem; border-radius: 4px; text-decoration: none; font-weight: bold; }
+    .nav-toggle { display: block; background: none; border: none; font-size: 1.5rem; color: #fff; cursor: pointer; margin: var(--spacing-base) 0; }
+
+    nav { width: 100%; }
+    nav ul { list-style: none; display: none; flex-direction: column; background: var(--color-primary); }
+    nav ul.active { display: flex; }
+    nav li { position: relative; width: 100%; }
+    nav a, .submenu-toggle { color: #fff; text-decoration: none; padding: var(--spacing-base); display: block; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.2); }
+    nav a:hover, .submenu-toggle:hover { background: rgba(255,255,255,0.1); }
+
+    /* Dropdown */
+    .has-submenu .submenu { display: none; flex-direction: column; background: var(--color-secondary); }
+    .has-submenu.open > .submenu { display: flex; }
+    .submenu li { margin: 0; }
+    .submenu a { color: #fff; padding: var(--spacing-base); border-bottom: 1px solid rgba(255,255,255,0.2); }
+    .submenu a:hover { background: var(--color-accent); }
+
+    /* Section typography & spacing */
+    .section { padding: calc(var(--spacing-base)*2) 0; }
+    .section-title { font-size: 2.5rem; color: var(--color-primary); text-align: center; margin-bottom: var(--spacing-base); }
+    .section p, .section ul { margin-bottom: var(--spacing-base); }
+    .section ul { list-style: disc inside; }
+
+    /* Gallery */
+    .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--spacing-base); margin-bottom: var(--spacing-base); }
+    .gallery figure { background: #f9f9f9; border-radius: 4px; overflow: hidden; text-align: center; }
+    .gallery img { width: 100%; display: block; height: auto; }
+    .gallery figcaption { padding: 0.5rem; font-size: 0.9rem; color: var(--color-text); }
+
+    /* Content-level CTA */
+    .cta-row { display: flex; justify-content: center; margin-top: var(--spacing-base); }
+    .btn-primary { background: var(--color-secondary); color: #fff; padding: 0.75rem 1.5rem; border-radius: 4px; text-decoration: none; font-weight: bold; display: inline-block; }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const navList = document.querySelector('nav ul');
+      document.querySelector('.nav-toggle').addEventListener('click', () => {
+        navList.classList.toggle('active');
+        if (!navList.classList.contains('active')) document.querySelectorAll('.has-submenu.open').forEach(li => li.classList.remove('open'));
+      });
+      document.querySelectorAll('.has-submenu > .submenu-toggle').forEach(toggle => {
+        toggle.addEventListener('click', e => { e.preventDefault(); toggle.parentElement.classList.toggle('open'); });
+      });
+    });
+  </script>
+</head>
+<body>
+  <!-- Top bar -->
+  <header class="top-bar">
+    <div class="container social-icons">
+      <span>Connect with us:</span>
+      <a href="https://www.facebook.com/YourPage" target="_blank">Facebook</a>
+      <a href="https://www.google.com" target="_blank">Google</a>
+    </div>
+  </header>
+
+  <!-- Main navigation -->
+  <header class="main-nav">
+    <div class="container">
+      <div class="header-logo">
+        <a href="/" class="logo"><img src="assets/logo.png" alt="ComfortPro HVAC Logo"/></a>
+      </div>
+      <div class="header-cta">
+        <a href="tel:+13055551234" class="phone-btn">(305) 555-1234</a>
+        <a href="#request-service" class="phone-btn">Request a Service</a>
+      </div>
+      <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li class="has-submenu">
+            <a href="#" class="submenu-toggle">About Us ▾</a>
+            <ul class="submenu">
+              <li><a href="our-story.html">Our Story</a></li>
+              <li><a href="careers.html">Careers</a></li>
+              <li><a href="testimonials.html">Testimonials</a></li>
+            </ul>
+          </li>
+          <li class="has-submenu">
+            <a href="#" class="submenu-toggle">Heating ▾</a>
+            <ul class="submenu">
+              <li><a href="furnace-installation.html">Furnace Installation &amp; Replacement</a></li>
+              <li><a href="furnace-repair.html">Furnace Repair</a></li>
+              <li><a href="heat-pump-services.html">Heat Pump Services</a></li>
+            </ul>
+          </li>
+          <li class="has-submenu">
+            <a href="#" class="submenu-toggle">Cooling ▾</a>
+            <ul class="submenu">
+              <li><a href="ac-installation.html">AC Installation &amp; Replacement</a></li>
+              <li><a href="ac-repair.html">AC Repair &amp; Maintenance</a></li>
+              <li><a href="thermostats.html">Thermostats</a></li>
+            </ul>
+          </li>
+          <li><a href="tankless.html">Tankless</a></li>
+          <li><a href="service-area.html">Service Area</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Tankless Water Heaters Section -->
+  <section id="tankless" class="section">
+    <div class="container">
+      <h1 class="section-title">Tankless Water Heaters</h1>
+      <p>Experience endless hot water, energy savings, and space efficiency with our professional tankless water heater installation and service.</p>
+
+      <!-- Image Gallery -->
+      <div class="gallery">
+        <figure><img src="assets/tankless1.jpg" alt="Tankless unit mounted on wall"><figcaption>Wall-mounted tankless water heater installation</figcaption></figure>
+        <figure><img src="assets/tankless2.jpg" alt="Plumber connecting unit lines"><figcaption>Professional gas and water line connection</figcaption></figure>
+        <figure><img src="assets/tankless3.jpg" alt="Indoor unit servicing"><figcaption>Routine maintenance &amp; descaling service</figcaption></figure>
+        <figure><img src="assets/tankless4.jpg" alt="Compact space-saving install"><figcaption>Space-saving design for tight utility rooms</figcaption></figure>
+      </div>
+
+      <h2>What’s Included</h2>
+      <ul>
+        <li>Free on-site consultation &amp; load calc</li>
+        <li>High-efficiency tankless unit options</li>
+        <li>Professional piping &amp; venting installation</li>
+        <li>Full system startup &amp; user training</li>
+        <li>1-year labor warranty + manufacturer warranty</li>
+      </ul>
+
+      <h2>Why Choose ComfortPro?</h2>
+      <ul>
+        <li>Certified plumbing &amp; gas professionals</li>
+        <li>Reduced energy bills up to 30%</li>
+        <li>Compact units free up utility space</li>
+        <li>24/7 emergency support &amp; service plans</li>
+      </ul>
+
+      <div class="cta-row">
+        <a href="#request-service" class="btn-primary">Request a Service</a>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
