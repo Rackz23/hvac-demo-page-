@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Miami FL HVAC Services | ComfortPro HVAC</title>
   <style>
@@ -14,9 +14,13 @@
       --font-base: 'Helvetica Neue', Arial, sans-serif;
       --spacing-base: 1rem;
       --max-width: 1200px;
+      --transition-speed: 0.3s;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: var(--font-base); color: var(--color-text); background: var(--color-background); line-height: 1.6; }
+    img { max-width: 100%; display: block; }
+    a { color: var(--color-secondary); text-decoration: none; transition: color var(--transition-speed); }
+    a:hover { color: var(--color-accent); }
     .container { width: 90%; max-width: var(--max-width); margin: 0 auto; }
 
     /* Top bar */
@@ -25,209 +29,278 @@
     .social-icons span { color: var(--color-text); }
     .social-icons a { margin-right: 0.5rem; color: var(--color-text); text-decoration: none; font-weight: bold; font-size: 0.95rem; }
 
-    /* Main navigation */
+    /* Navigation */
     .main-nav { background: var(--color-primary); position: sticky; top: 0; z-index: 1000; }
     .main-nav .container { display: flex; flex-direction: column; align-items: center; padding: 0.5rem 0; }
-    .header-logo img {
-      height: 80px;
-      display: block;
-      margin: var(--spacing-base) 0;
-    }
-    .header-cta {
-      display: flex;
-      justify-content: center;
-      gap: var(--spacing-base);
-      margin: var(--spacing-base) 0;
-    }
-    .header-cta .phone-btn {
-      background: var(--color-accent);
-      color: #fff;
-      padding: 0.5rem 1rem;
-      border-radius: 4px;
-      text-decoration: none;
-      font-weight: bold;
-    }
+    .header-logo img { height: 80px; margin: var(--spacing-base) 0; }
+    .header-cta { display: flex; justify-content: center; gap: var(--spacing-base); margin: var(--spacing-base) 0; }
+    .header-cta .phone-btn { background: var(--color-accent); color: #fff; padding: 0.5rem 1rem; border-radius: 4px; text-decoration: none; font-weight: bold; }
     .nav-toggle { display: block; background: none; border: none; font-size: 1.5rem; color: #fff; cursor: pointer; margin: var(--spacing-base) 0; }
-    nav { width: 100%; }
-    nav ul { list-style: none; display: none; flex-direction: column; background: var(--color-primary); }
+    nav ul { list-style: none; display: none; flex-direction: column; width: 100%; }
     nav ul.active { display: flex; }
     nav li { position: relative; width: 100%; }
-    nav a, .submenu-toggle { color: #fff; text-decoration: none; padding: var(--spacing-base); display: block; white-space: nowrap; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.2); }
+    nav a, .submenu-toggle { color: #fff; padding: var(--spacing-base); display: block; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.2); }
     nav a:hover, .submenu-toggle:hover { background: rgba(255,255,255,0.1); }
-
-    /* Dropdown */
-    .has-submenu .submenu {
-      display: none;
-      flex-direction: column;
-      background: var(--color-secondary);
-    }
-    .has-submenu.open > .submenu {
-      display: flex;
-    }
-    .submenu li { margin: 0; }
-    .submenu a {
-      color: #fff;
-      padding: var(--spacing-base);
-      border-bottom: 1px solid rgba(255,255,255,0.2);
-    }
-    .submenu a:hover {
-      background: var(--color-accent);
-    }
+    .has-submenu .submenu { display: none; flex-direction: column; background: var(--color-secondary); }
+    .has-submenu.open > .submenu { display: flex; }
+    .submenu a { color: #fff; padding: var(--spacing-base); border-bottom: 1px solid rgba(255,255,255,0.2); }
+    .submenu a:hover { background: var(--color-accent); }
 
     /* Hero */
     .hero { display: flex; align-items: center; justify-content: center; height: 80vh; background: url('https://via.placeholder.com/1600x900') center/cover no-repeat; color: #fff; text-shadow: 0 2px 4px rgba(0,0,0,0.5); padding: var(--spacing-base); text-align: center; }
     .hero .content { max-width: 600px; }
-    .hero h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+    .hero h1 { font-size: 3rem; margin-bottom: 0.5rem; }
     .hero p { font-size: 1.25rem; margin-bottom: var(--spacing-base); }
-    .btn-primary { background: var(--color-secondary); color: #fff; padding: 0.75rem 1.5rem; border-radius: 4px; text-decoration: none; font-weight: bold; display: inline-block; }
+    .btn-primary { background: var(--color-secondary); color: #fff; padding: 0.75rem 1.5rem; border-radius: 4px; text-decoration: none; font-weight: bold; display: inline-block; transition: background var(--transition-speed); }
+    .btn-primary:hover { background: var(--color-accent); }
 
-    /* Services */
-    .section { padding: calc(var(--spacing-base)*2) 0; }
-    .section h2 { font-size: 2rem; color: var(--color-primary); text-align: center; margin-bottom: var(--spacing-base); }
+    /* Sections */
+    .section { padding: calc(var(--spacing-base) * 2) 0; }
+    .section h2 { font-size: 2.25rem; color: var(--color-primary); text-align: center; margin-bottom: var(--spacing-base); }
+
+    /* Features grid */
     .features { display: grid; grid-template-columns: 1fr; gap: var(--spacing-base); }
     @media (min-width: 768px) { .features { grid-template-columns: repeat(4,1fr); } }
     .feature-item { background: #f9f9f9; padding: var(--spacing-base); border-radius: 4px; text-align: center; }
-    .feature-item img { width: 50px; margin-bottom: 0.5rem; }
+    .feature-item img { width: 60px; margin-bottom: 0.5rem; }
     .feature-item h3 { color: var(--color-primary); margin-bottom: 0.5rem; }
+    .feature-item p { font-size: 0.95rem; }
+
+    /* About us */
+    .about { display: flex; flex-direction: column; gap: var(--spacing-base); }
+    @media (min-width: 768px) { .about { flex-direction: row; } }
+    .about .text, .about .image { flex: 1; }
+    .about .text p { margin-bottom: var(--spacing-base); }
+
+    /* Testimonials */
+    .testimonials { display: grid; grid-template-columns: 1fr; gap: var(--spacing-base); }
+    @media (min-width: 768px) { .testimonials { grid-template-columns: repeat(3,1fr); } }
+    .testimonial { background: #f9f9f9; padding: var(--spacing-base); border-radius: 4px; }
+    .testimonial p { font-style: italic; margin-bottom: var(--spacing-base); }
+    .testimonial .author { text-align: right; font-weight: bold; }
+
+    /* FAQ */
+    .faq-item { margin-bottom: var(--spacing-base); }
+    .faq-item h4 { cursor: pointer; background: var(--color-primary); color: #fff; padding: var(--spacing-base); border-radius: 4px; }
+    .faq-item p { display: none; padding: var(--spacing-base); background: #f9f9f9; border-radius: 4px; }
 
     /* CTA row */
-    .cta-row .container { padding: var(--spacing-base) 0; display: flex; justify-content: center; gap: var(--spacing-base); flex-wrap: wrap; }
-    .cta-row a { background: var(--color-secondary); color: #fff; padding: var(--spacing-base) 1.5rem; border-radius: 4px; text-decoration: none; font-weight: bold; }
+    .cta-row { background: var(--color-primary); color: #fff; padding: var(--spacing-base) 0; }
+    .cta-row .container { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--spacing-base); }
+    .cta-row a { background: var(--color-secondary); color: #fff; padding: var(--spacing-base) 1.5rem; border-radius: 4px; }
 
-    /* Mobile-first: all styles above apply; desktop can override */
+    /* Footer */
+    footer { background: #333; color: #ccc; padding: var(--spacing-base) 0; font-size: 0.9rem; }
+    footer .container { display: grid; grid-template-columns: 1fr; gap: var(--spacing-base); }
+    @media (min-width: 768px) { footer .container { grid-template-columns: repeat(3,1fr); } }
+    footer h5 { color: #fff; margin-bottom: var(--spacing-base); }
+    footer a { color: #ccc; }
+    footer .legal { font-size: 0.8rem; margin-top: var(--spacing-base); }
+
   </style>
-
   <script>
     document.addEventListener('DOMContentLoaded', () => {
+      // Nav toggle
       const navList = document.querySelector('nav ul');
-      const navToggle = document.querySelector('.nav-toggle');
-
-      // Toggle main menu
-      navToggle.addEventListener('click', () => {
+      document.querySelector('.nav-toggle').addEventListener('click', () => {
         navList.classList.toggle('active');
-        // close any open submenus when closing main menu
-        if (!navList.classList.contains('active')) {
-          document.querySelectorAll('.has-submenu.open')
-            .forEach(item => item.classList.remove('open'));
-        }
+        document.querySelectorAll('.has-submenu.open').forEach(li => li.classList.remove('open'));
       });
-
-      // Toggle individual submenus
-      document.querySelectorAll('.has-submenu > .submenu-toggle').forEach(toggle => {
+      document.querySelectorAll('.submenu-toggle').forEach(toggle => {
         toggle.addEventListener('click', e => {
           e.preventDefault();
-          const parent = toggle.parentElement;
-          parent.classList.toggle('open');
+          toggle.parentElement.classList.toggle('open');
+        });
+      });
+
+      // FAQ toggle
+      document.querySelectorAll('.faq-item h4').forEach(header => {
+        header.addEventListener('click', () => {
+          const p = header.nextElementSibling;
+          p.style.display = p.style.display === 'block' ? 'none' : 'block';
         });
       });
     });
   </script>
 </head>
-
 <body>
+
   <!-- Top bar -->
   <header class="top-bar">
     <div class="container social-icons">
-      <span>Connect with us:</span>
-      <a href="https://www.facebook.com/YourPage" target="_blank">Facebook</a>
-      <a href="https://www.google.com" target="_blank">Google</a>
+      <span>Follow us:</span>
+      <a href="https://facebook.com" target="_blank">Facebook</a>
+      <a href="https://instagram.com" target="_blank">Instagram</a>
+      <a href="https://twitter.com" target="_blank">Twitter</a>
     </div>
   </header>
 
-  <!-- Main navigation -->
+  <!-- Navigation -->
   <header class="main-nav">
     <div class="container">
       <div class="header-logo">
-        <a href="/" class="logo">
-          <img src="assets/logo.png" alt="ComfortPro HVAC Logo" />
-        </a>
+        <a href="/"><img src="assets/logo.png" alt="ComfortPro HVAC Logo"/></a>
       </div>
       <div class="header-cta">
         <a href="tel:+13055551234" class="phone-btn">(305) 555-1234</a>
-        <a href="#request-service" class="phone-btn">Request a Service</a>
+        <a href="#quote" class="phone-btn">Get a Quote</a>
       </div>
       <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
-
       <nav>
-  <ul>
-<li><a href="index.html">Home</a></li>
-    <li class="has-submenu">
-      <a href="#" class="submenu-toggle">About Us ▾</a>
-      <ul class="submenu">
-        <li><a href="our-story.html">Our Story</a></li>
-        <li><a href="careers.html">Careers</a></li>
-        <li><a href="testimonials.html">Testimonials</a></li>
-      </ul>
-    </li>
-    <li class="has-submenu">
-      <a href="#" class="submenu-toggle">Heating ▾</a>
-      <ul class="submenu">
-        <li><a href="furnace-installation.html">Furnace Installation &amp; Replacement</a></li>
-        <li><a href="furnace-repair.html">Furnace Repair</a></li>
-        <li><a href="heat-pump-services.html">Heat Pump Services</a></li>
-      </ul>
-    </li>
-    <li class="has-submenu">
-      <a href="#" class="submenu-toggle">Cooling ▾</a>
-      <ul class="submenu">
-        <li><a href="ac-installation.html">AC Installation &amp; Replacement</a></li>
-        <li><a href="ac-repair.html">AC Repair &amp; Maintenance</a></li>
-        <li><a href="thermostats.html">Thermostats</a></li>
-      </ul>
-    </li>
-    <li><a href="tankless.html">Tankless</a></li>
-    <li><a href="service-area.html">Service Area</a></li>
-    <li><a href="contact.html">Contact Us</a></li>
-  </ul>
-</nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li class="has-submenu">
+            <a href="#" class="submenu-toggle">About ▾</a>
+            <ul class="submenu">
+              <li><a href="#about">Our Story</a></li>
+              <li><a href="#team">Team</a></li>
+            </ul>
+          </li>
+          <li class="has-submenu">
+            <a href="#" class="submenu-toggle">Services ▾</a>
+            <ul class="submenu">
+              <li><a href="#services">All Services</a></li>
+              <li><a href="ac-repair.html">AC Repair</a></li>
+              <li><a href="ac-installation.html">AC Install</a></li>
+            </ul>
+          </li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
     </div>
   </header>
-
-  <!-- CTA row -->
-  <div class="cta-row">
-    <div class="container">
-      <a href="#filters" class="btn-primary">BUY FILTERS</a>
-      <a href="#subscription" class="btn-primary">MAINTENANCE SUBSCRIPTION</a>
-      <a href="#quote" class="btn-primary">GET AN INSTANT QUOTE</a>
-    </div>
-  </div>
 
   <!-- Hero -->
   <section class="hero">
     <div class="content">
-      <h1>ComfortPro HVAC Services</h1>
-      <p>Your trusted HVAC experts serving Miami & Fort Lauderdale</p>
-      <a href="#services" class="btn-primary">Request a Free Quote</a>
+      <h1>ComfortPro HVAC</h1>
+      <p>Your trusted Miami & Fort Lauderdale HVAC experts</p>
+      <a href="#quote" class="btn-primary">Get Your Free Quote</a>
     </div>
   </section>
 
-  <!-- Services Overview -->
+  <!-- Features -->
   <section id="services" class="section">
     <div class="container">
-      <h2>Our HVAC Services</h2>
+      <h2>Our Core Services</h2>
       <div class="features">
         <div class="feature-item">
-          <img src="https://via.placeholder.com/50?text=AC" alt="AC Repair Icon" />
-          <h3>AC Repair & Maintenance</h3>
-          <p>24/7 emergency repairs to keep you cool.</p>
+          <img src="assets/icons/ac-repair.svg" alt="AC Repair"/>
+          <h3>24/7 AC Repair</h3>
+          <p>Emergency repairs any time of day or night.</p>
         </div>
         <div class="feature-item">
-          <img src="https://via.placeholder.com/50?text=Install" alt="Install Icon" />
+          <img src="assets/icons/installation.svg" alt="Installation"/>
           <h3>New System Installation</h3>
-          <p>Expert setup of energy-efficient systems.</p>
+          <p>Energy-efficient units professionally installed.</p>
         </div>
         <div class="feature-item">
-          <img src="https://via.placeholder.com/50?text=Duct" alt="Duct Icon" />
-          <h3>Duct Cleaning</h3>
-          <p>Improve indoor air quality with thorough duct cleaning.</p>
+          <img src="assets/icons/maintenance.svg" alt="Maintenance"/>
+          <h3>Preventive Maintenance</h3>
+          <p>Keep your system running at peak performance.</p>
         </div>
         <div class="feature-item">
-          <img src="https://via.placeholder.com/50?text=Other" alt="Other Icon" />
-          <h3>Other Services</h3>
-          <p>Thermostats, air handlers, and more.</p>
+          <img src="assets/icons/indoor-air.svg" alt="Indoor Air Quality"/>
+          <h3>Air Quality Solutions</h3>
+          <p>Filters, purifiers, and duct cleaning for healthier air.</p>
         </div>
       </div>
     </div>
   </section>
+
+  <!-- About Us -->
+  <section id="about" class="section">
+    <div class="container about">
+      <div class="image">
+        <img src="assets/team.jpg" alt="Team"/>
+      </div>
+      <div class="text">
+        <h2>About ComfortPro</h2>
+        <p>ComfortPro HVAC has served South Florida for over 25 years, delivering top-notch heating and cooling solutions to residential and commercial clients. Our factory-trained technicians are licensed, insured, and committed to your comfort.</p>
+        <p>We pride ourselves on transparent pricing, rapid response times, and unparalleled customer service. When you choose ComfortPro, you choose peace of mind.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section id="testimonials" class="section">
+    <div class="container">
+      <h2>What Our Clients Say</h2>
+      <div class="testimonials">
+        <div class="testimonial">
+          <p>"ComfortPro fixed my AC in under an hour! Their technician was friendly and professional."</p>
+          <div class="author">— Sarah W., Miami</div>
+        </div>
+        <div class="testimonial">
+          <p>"Our new system installation was seamless. The team walked us through every step."</p>
+          <div class="author">— Mark D., Fort Lauderdale</div>
+        </div>
+        <div class="testimonial">
+          <p>"I love my indoor air quality upgrade. Breathing easier at home is priceless."</p>
+          <div class="author">— Elena R., Coral Gables</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="section">
+    <div class="container">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-item">
+        <h4>How often should I service my AC?</h4>
+        <p>We recommend annual preventive maintenance before summer to ensure peak efficiency and avoid breakdowns.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Do you offer financing?</h4>
+        <p>Yes—we partner with third-party lenders to offer flexible financing plans on new installations.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Are your technicians licensed?</h4>
+        <p>All our technicians are state-licensed, EPA-certified, and fully insured.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <div class="cta-row">
+    <div class="container">
+      <a href="#quote" class="btn-primary">Request Your Quote</a>
+      <a href="maintenance-subscription.html" class="btn-primary">Join Maintenance Plan</a>
+      <a href="filters.html" class="btn-primary">Order Replacement Filters</a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div>
+        <h5>ComfortPro HVAC</h5>
+        <p>123 Cool Breeze Lane<br/>Miami, FL 33101<br/>(305) 555-1234</p>
+      </div>
+      <div>
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="ac-repair.html">AC Repair</a></li>
+          <li><a href="ac-installation.html">AC Installation</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+        </ul>
+        <div class="legal">
+          &copy; 2025 ComfortPro HVAC. All rights reserved.
+        </div>
+      </div>
+    </div>
+  </footer>
+
 </body>
 </html>
