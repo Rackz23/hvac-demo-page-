@@ -69,7 +69,8 @@
       document.querySelector('.nav-toggle').addEventListener('click', () => {
         navList.classList.toggle('active');
         if (!navList.classList.contains('active')) {
-          document.querySelectorAll('.has-submenu.open').forEach(li => li.classList.remove('open')); }
+          document.querySelectorAll('.has-submenu.open').forEach(li => li.classList.remove('open'));
+        }
       });
       document.querySelectorAll('.has-submenu > .submenu-toggle').forEach(toggle => {
         toggle.addEventListener('click', e => { e.preventDefault(); toggle.parentElement.classList.toggle('open'); });
@@ -78,7 +79,6 @@
   </script>
 </head>
 <body>
-
   <!-- Top bar -->
   <header class="top-bar">
     <div class="container social-icons">
@@ -165,4 +165,21 @@
         <li>Free consult &amp; device selection</li>
         <li>Professional installation &amp; wiring</li>
         <li>WiFi setup &amp; app integration</li>
-        <li>Full user tutorial &amp; programming
+        <li>Full user tutorial &amp; programming</li>
+      </ul>
+
+      <h2>Why Choose ComfortPro?</h2>
+      <ul>
+        <li>Licensed &amp; insured technicians</li>
+        <li>Expert smart-home integration</li>
+        <li>Transparent pricing—no hidden fees</li>
+        <li>100% satisfaction guarantee</li>
+      </ul>
+
+      <div class="cta-row">
+        <a href="#request-service" class="btn-primary">Request a Service</a>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
