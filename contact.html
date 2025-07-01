@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us | ComfortPro HVAC</title>
+  <style>
+    :root {
+      --color-primary: #004b8d;
+      --color-secondary: #f0a500;
+      --color-accent: #e94f37;
+      --color-background: #ffffff;
+      --color-text: #333333;
+      --font-base: 'Helvetica Neue', Arial, sans-serif;
+      --spacing-base: 1rem;
+      --max-width: 1200px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--font-base); color: var(--color-text); background: var(--color-background); line-height: 1.6; }
+    .container { width: 90%; max-width: var(--max-width); margin: 0 auto; }
+
+    /* Top bar */
+    .top-bar { background: var(--color-background); border-bottom: 1px solid #ddd; font-size: 0.9rem; }
+    .top-bar .container { display: flex; justify-content: center; align-items: center; padding: 0.25rem 0; gap: 1.5rem; flex-wrap: wrap; }
+    .social-icons span { color: var(--color-text); }
+    .social-icons a { margin-right: 0.5rem; color: var(--color-text); text-decoration: none; font-weight: bold; font-size: 0.95rem; }
+
+    /* Main navigation */
+    .main-nav { background: var(--color-primary); position: sticky; top: 0; z-index: 1000; }
+    .main-nav .container { display: flex; flex-direction: column; align-items: center; padding: 0.5rem 0; }
+    .header-logo img { height: 80px; margin: var(--spacing-base) 0; }
+    .header-cta { display: flex; justify-content: center; gap: var(--spacing-base); margin: var(--spacing-base) 0; }
+    .header-cta .phone-btn { background: var(--color-accent); color: #fff; padding: 0.5rem 1rem; border-radius: 4px; text-decoration: none; font-weight: bold; }
+    .nav-toggle { display: block; background: none; border: none; font-size: 1.5rem; color: #fff; cursor: pointer; margin: var(--spacing-base) 0; }
+    nav { width: 100%; }
+    nav ul { list-style: none; display: none; flex-direction: column; background: var(--color-primary); }
+    nav ul.active { display: flex; }
+    nav li { position: relative; width: 100%; }
+    nav a, .submenu-toggle { color: #fff; text-decoration: none; padding: var(--spacing-base); display: block; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.2); }
+    nav a:hover, .submenu-toggle:hover { background: rgba(255,255,255,0.1); }
+    .has-submenu .submenu { display: none; flex-direction: column; background: var(--color-secondary); }
+    .has-submenu.open > .submenu { display: flex; }
+    .submenu li { margin: 0; }
+    .submenu a { color: #fff; padding: var(--spacing-base); border-bottom: 1px solid rgba(255,255,255,0.2); }
+    .submenu a:hover { background: var(--color-accent); }
+
+    /* Section typography */
+    .section { padding: calc(var(--spacing-base)*2) 0; }
+    .section-title { font-size: 2.5rem; color: var(--color-primary); text-align: center; margin-bottom: var(--spacing-base); }
+
+    /* Contact layout */
+    .contact-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap: var(--spacing-base); margin-top: var(--spacing-base); }
+    .contact-info, .contact-form { background: #f9f9f9; padding: var(--spacing-base); border-radius: 4px; }
+    .contact-info h2, .contact-form h2 { color: var(--color-primary); margin-bottom: var(--spacing-base); }
+    .contact-info p, .contact-info address { margin-bottom: var(--spacing-base); }
+
+    .form-group { margin-bottom: var(--spacing-base); display: flex; flex-direction: column; }
+    .form-group label { margin-bottom: 0.5rem; color: var(--color-primary); }
+    .form-group input,
+    .form-group textarea { padding: 0.5rem; border: 1px solid #ccc; border-radius: 4px; font-family: var(--font-base); }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+    .submit-btn { background: var(--color-secondary); color: #fff; border: none; padding: 0.75rem 1.5rem; border-radius: 4px; cursor: pointer; font-weight: bold; }
+
+    .cta-row { display: flex; justify-content: center; margin-top: var(--spacing-base); }
+    .btn-primary { background: var(--color-secondary); color: #fff; padding: 0.75rem 1.5rem; border-radius: 4px; text-decoration: none; font-weight: bold; }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelector('.nav-toggle').addEventListener('click', () => {
+        const nav = document.querySelector('nav ul');
+        nav.classList.toggle('active');
+        document.querySelectorAll('.has-submenu.open').forEach(li => li.classList.remove('open'));
+      });
+      document.querySelectorAll('.submenu-toggle').forEach(toggle => {
+        toggle.addEventListener('click', e => {
+          e.preventDefault();
+          toggle.parentElement.classList.toggle('open');
+        });
+      });
+    });
+  </script>
+</head>
+<body>
+
+  <!-- Top bar -->
+  <header class="top-bar">
+    <div class="container social-icons">
+      <span>Connect with us:</span>
+      <a href="https://www.facebook.com/YourPage" target="_blank">Facebook</a>
+      <a href="https://www.google.com" target="_blank">Google</a>
+    </div>
+  </header>
+
+  <!-- Main navigation -->
+  <header class="main-nav">
+    <div class="container">
+      <div class="header-logo">
+        <a href="/"><img src="assets/logo.png" alt="ComfortPro HVAC Logo"/></a>
+      </div>
+      <div class="header-cta">
+        <a href="tel:+13055551234" class="phone-btn">(305) 555-1234</a>
+        <a href="#contact-form" class="phone-btn">Send a Message</a>
+      </div>
+      <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li class="has-submenu">
+            <a href="#" class="submenu-toggle">About Us ▾</a>
+            <ul class="submenu">
+              <li><a href="our-story.html">Our Story</a></li>
+              <li><a href="careers.html">Careers</a></li>
+              <li><a href="testimonials.html">Testimonials</a></li>
+            </ul>
+          </li>
+          <li class="has-submenu">
+            <a href="#" class="submenu-toggle">Heating ▾</a>
+            <ul class="submenu">
+              <li><a href="furnace-installation.html">Furnace Installation</a></li>
+              <li><a href="furnace-repair.html">Furnace Repair</a></li>
+              <li><a href="heat-pump-services.html">Heat Pump</a></li>
+            </ul>
+          </li>
+          <li class="has-submenu">
+            <a href="#" class="submenu-toggle">Cooling ▾</a>
+            <ul class="submenu">
+              <li><a href="ac-installation.html">AC Installation</a></li>
+              <li><a href="ac-repair.html">AC Repair</a></li>
+              <li><a href="thermostats.html">Thermostats</a></li>
+            </ul>
+          </li>
+          <li><a href="tankless.html">Tankless</a></li>
+          <li><a href="service-area.html">Service Area</a></li>
+          <li class="active"><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section">
+    <div class="container">
+      <h1 class="section-title">Contact Us</h1>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h2>Get in Touch</h2>
+          <p>Have questions or need service? Reach out to ComfortPro HVAC any time:</p>
+          <address>
+            123 Cool Breeze Lane<br/>
+            Miami, FL 33101<br/>
+            Phone: <a href="tel:+13055551234">(305) 555-1234</a><br/>
+            Email: <a href="mailto:info@comfortprohvac.com">info@comfortprohvac.com</a>
+          </address>
+          <div class="cta-row">
+            <a href="tel:+13055551234" class="btn-primary">Call Now</a>
+          </div>
+        </div>
+        <div class="contact-form">
+          <h2>Send Us a Message</h2>
+          <form id="contact-form" action="#" method="post">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required/>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required/>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone</label>
+              <input type="tel" id="phone" name="phone"/>
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
