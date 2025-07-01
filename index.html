@@ -46,39 +46,121 @@
     .submenu a { color: #fff; padding: var(--spacing-base); border-bottom: 1px solid rgba(255,255,255,0.2); }
     .submenu a:hover { background: var(--color-accent); }
 
-    /* Desktop navigation */
-    @media (min-width: 768px) {
-      .main-nav .container {
-        flex-direction: row;
-        justify-content: space-between;
-      }
-      nav ul {
-        display: flex;
-        flex-direction: row;
-        width: auto;
-      }
-      nav li { width: auto; }
-      nav a, .submenu-toggle {
-        border-bottom: none;
-      }
+   /* Hero */
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 80vh;
+      /* updated background */
+      background-image: url('assets/hero-bg.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: #fff;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+      padding: var(--spacing-base);
+      text-align: center;
     }
+    .hero .content { max-width: 600px; }
+    .hero h1 { font-size: 3rem; margin-bottom: 0.5rem; }
+    .hero p { font-size: 1.25rem; margin-bottom: var(--spacing-base); }
+    .btn-primary { background: var(--color-secondary); color: #fff; padding: 0.75rem 1.5rem; border-radius: 4px; font-weight: bold; }
+    /* Sections */
+    .section { padding: calc(var(--spacing-base) * 2) 0; }
+    .section h2 { font-size: 2.25rem; color: var(--color-primary); text-align: center; margin-bottom: var(--spacing-base); }
+
+    /* Features grid */
+.features {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-base);
+}
+@media (min-width: 768px) {
+  .features {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.feature-item {
+  background: #f9f9f9;
+  padding: var(--spacing-base);
+  border-radius: 4px;
+  text-align: center;
+}
+.feature-item img {
+  display: block;
+  width: 150px;               /* larger base size */
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto var(--spacing-base);
+  border-radius: 4px;         /* subtle rounding for a cleaner look */
+  object-fit: cover;
+}
+@media (min-width: 768px) {
+  .feature-item img {
+    width: 200px;             /* even bigger on desktop */
+  }
+}
+.feature-item h3 {
+  color: var(--color-primary);
+  margin-bottom: 0.5rem;
+}
+.feature-item p {
+  font-size: 0.95rem;
+}
+
+    /* About us */
+    .about { display: flex; flex-direction: column; gap: var(--spacing-base); }
+    @media (min-width: 768px) { .about { flex-direction: row; } }
+    .about .text, .about .image { flex: 1; }
+    .about .text p { margin-bottom: var(--spacing-base); }
+
+    /* Testimonials */
+    .testimonials { display: grid; grid-template-columns: 1fr; gap: var(--spacing-base); }
+    @media (min-width: 768px) { .testimonials { grid-template-columns: repeat(3,1fr); } }
+    .testimonial { background: #f9f9f9; padding: var(--spacing-base); border-radius: 4px; }
+    .testimonial p { font-style: italic; margin-bottom: var(--spacing-base); }
+    .testimonial .author { text-align: right; font-weight: bold; }
+
+    /* FAQ */
+    .faq-item { margin-bottom: var(--spacing-base); }
+    .faq-item h4 { cursor: pointer; background: var(--color-primary); color: #fff; padding: var(--spacing-base); border-radius: 4px; }
+    .faq-item p { display: none; padding: var(--spacing-base); background: #f9f9f9; border-radius: 4px; }
+
+    /* CTA row */
+    .cta-row { background: var(--color-primary); color: #fff; padding: var(--spacing-base) 0; }
+    .cta-row .container { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--spacing-base); }
+    .cta-row a { background: var(--color-secondary); color: #fff; padding: var(--spacing-base) 1.5rem; border-radius: 4px; }
+
+    /* Footer */
+    footer { background: #333; color: #ccc; padding: var(--spacing-base) 0; font-size: 0.9rem; }
+    footer .container { display: grid; grid-template-columns: 1fr; gap: var(--spacing-base); }
+    @media (min-width: 768px) { footer .container { grid-template-columns: repeat(3,1fr); } }
+    footer h5 { color: #fff; margin-bottom: var(--spacing-base); }
+    footer a { color: #ccc; }
+    footer .legal { font-size: 0.8rem; margin-top: var(--spacing-base); }
+
   </style>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const navToggle = document.querySelector('.nav-toggle');
+      // Nav toggle
       const navList = document.querySelector('nav ul');
-
-      navToggle.addEventListener('click', () => {
+      document.querySelector('.nav-toggle').addEventListener('click', () => {
         navList.classList.toggle('active');
-        // Close any open submenus
-        document.querySelectorAll('.has-submenu.open')
-          .forEach(li => li.classList.remove('open'));
+        document.querySelectorAll('.has-submenu.open').forEach(li => li.classList.remove('open'));
       });
-
-      document.querySelectorAll('.has-submenu > .submenu-toggle').forEach(toggle => {
+      document.querySelectorAll('.submenu-toggle').forEach(toggle => {
         toggle.addEventListener('click', e => {
           e.preventDefault();
           toggle.parentElement.classList.toggle('open');
+        });
+      });
+
+      // FAQ toggle
+      document.querySelectorAll('.faq-item h4').forEach(header => {
+        header.addEventListener('click', () => {
+          const p = header.nextElementSibling;
+          p.style.display = p.style.display === 'block' ? 'none' : 'block';
         });
       });
     });
@@ -122,7 +204,7 @@
             <ul class="submenu">
               <li><a href="#services">All Services</a></li>
               <li><a href="ac-repair.html">AC Repair</a></li>
-              <li><a href="ac-installation.html">AC Installation</a></li>
+              <li><a href="ac-installation.html">AC Install</a></li>
             </ul>
           </li>
           <li><a href="#testimonials">Testimonials</a></li>
@@ -132,80 +214,6 @@
       </nav>
     </div>
   </header>
-
-  <!-- Hero -->
-  <section class="hero">
-    <div class="content">
-      <h1>ComfortPro HVAC</h1>
-      <p>Your trusted Miami & Fort Lauderdale HVAC experts</p>
-      <a href="#quote" class="btn-primary">Get Your Free Quote</a>
-    </div>
-  </section>
-
-<!-- Features -->
-<section id="services" class="section">
-  <div class="container">
-    <h2>Our Core Services</h2>
-    <div class="features">
-      <div class="feature-item">
-        <img src="assets/ac-repair.jpeg" alt="AC Repair"/>
-        <h3>24/7 AC Repair</h3>
-        <p>Emergency repairs any time of day or night.</p>
-      </div>
-      <div class="feature-item">
-        <img src="assets/installation.jpeg" alt="New System Installation"/>
-        <h3>New System Installation</h3>
-        <p>Energy-efficient units professionally installed.</p>
-      </div>
-      <div class="feature-item">
-        <img src="assets/duct.jpeg" alt="Preventive Maintenance"/>
-        <h3>Preventive Maintenance</h3>
-        <p>Keep your system running at peak performance.</p>
-      </div>
-      <div class="feature-item">
-        <img src="assets/air-quality.jpeg" alt="Air Quality Solutions"/>
-        <h3>Air Quality Solutions</h3>
-        <p>Filters, purifiers, and duct cleaning for healthier air.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-  <!-- About Us -->
-  <section id="about" class="section">
-    <div class="container about">
-      <div class="image">
-        <img src="assets/team.jpg" alt="Team"/>
-      </div>
-      <div class="text">
-        <h2>About ComfortPro</h2>
-        <p>ComfortPro HVAC has served South Florida for over 25 years, delivering top-notch heating and cooling solutions to residential and commercial clients. Our factory-trained technicians are licensed, insured, and committed to your comfort.</p>
-        <p>We pride ourselves on transparent pricing, rapid response times, and unparalleled customer service. When you choose ComfortPro, you choose peace of mind.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Testimonials -->
-  <section id="testimonials" class="section">
-    <div class="container">
-      <h2>What Our Clients Say</h2>
-      <div class="testimonials">
-        <div class="testimonial">
-          <p>"ComfortPro fixed my AC in under an hour! Their technician was friendly and professional."</p>
-          <div class="author">— Sarah W., Miami</div>
-        </div>
-        <div class="testimonial">
-          <p>"Our new system installation was seamless. The team walked us through every step."</p>
-          <div class="author">— Mark D., Fort Lauderdale</div>
-        </div>
-        <div class="testimonial">
-          <p>"I love my indoor air quality upgrade. Breathing easier at home is priceless."</p>
-          <div class="author">— Elena R., Coral Gables</div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- FAQ -->
   <section id="faq" class="section">
